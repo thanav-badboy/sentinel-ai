@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #020617;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px 2px rgba(0, 242, 254, 0.25); }
+  50%       { box-shadow: 0 0 24px 6px rgba(0, 242, 254, 0.55); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes badge-pop {
+  0%   { transform: scale(0.75); opacity: 0; }
+  70%  { transform: scale(1.06); }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes threat-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+@keyframes score-fill {
+  from { stroke-dashoffset: 314; }
+  to   { stroke-dashoffset: 39; }
+}
+
+.animate-pulse-glow   { animation: pulse-glow   2s   ease-in-out infinite; }
+.animate-fade-in-up   { animation: fade-in-up   0.45s ease-out forwards; }
+.animate-badge-pop    { animation: badge-pop    0.4s  cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+.animate-threat-blink { animation: threat-blink 1.8s  ease-in-out infinite; }
+.animate-score-fill   { animation: score-fill   1.2s  ease-out forwards; }
+
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.cyber-scrollbar::-webkit-scrollbar { width: 4px; }
+.cyber-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
+.cyber-scrollbar::-webkit-scrollbar-thumb { background: rgba(0, 242, 254, 0.3); border-radius: 99px; }
+.cyber-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(0, 242, 254, 0.6); }
